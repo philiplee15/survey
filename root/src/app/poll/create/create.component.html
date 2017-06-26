@@ -1,0 +1,40 @@
+<div>
+  <div>
+    <span>Put the question and options here:</span>
+    <a style="float:right;" [routerLink]="['/dashboard']">Cancel</a>
+  </div>
+  <form (submit)="sendPoll()">
+    Question: <input required
+      type="text"
+      name="question"
+      [(ngModel)]="poll.question"
+      #question = "ngModel"><br>
+
+    Option1: <input required
+      type="text"
+      name="op1"
+      [(ngModel)]="poll.options.opt1"
+      #op1 = "ngModel"><br>
+    Option2: <input required
+      type="text"
+      name="op2"
+      [(ngModel)]="poll.options.opt2"
+      #op2 = "ngModel"><br>
+    Option3: <input required
+      type="text"
+      name="op3"
+      [(ngModel)]="poll.options.opt3"
+      #opt3 = "ngModel"><br>
+    Option4: <input required
+      type="text"
+      name="op4"
+      [(ngModel)]="poll.options.opt4"
+      #op4 = "ngModel"><br>
+      <input type="submit" value="Create Poll">
+  </form>
+  <div *ngIf="error!==null">
+    <ul>
+      <li *ngFor="let err of error">{{err}}</li>
+    </ul>
+  </div>
+</div>

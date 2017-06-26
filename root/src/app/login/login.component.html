@@ -1,0 +1,12 @@
+<div style="margin: 0 auto;">
+  <form (submit)="onSubmit()">
+    <span>Your name:</span>
+    <input
+      type="text"
+      name="name"
+      [(ngModel)]="user.username"
+      #name = "ngModel"
+    ><br>
+    <input type="submit" value="Enter">
+  </form>
+</div>

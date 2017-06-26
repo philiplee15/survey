@@ -1,0 +1,23 @@
+<div style="float:right;">
+  <a [routerLink]="['/create']">Create a New Poll</a>  <a (click)="logout()">Logout</a>
+</div>
+<br>
+<p>Current Polls:</p>
+<form>
+  <input type="text" name="search" placeholder="Search">
+</form>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Survey Question</th>
+    <th>Date Posted</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let question of allPolls">
+    <td>{{question._user.username}}</td>
+    <td><a (click)="questionRoute(question._id)">{{question.text}}</a></td>
+    <td>{{question.createdAt | date:'longDate'}}</td>
+    <td *ngIf="question._user.username === currentUser.username"><button (click)="delete(question._id)">Delete</button></td>
+  </tr>
+</table>
